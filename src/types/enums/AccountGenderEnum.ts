@@ -1,0 +1,1 @@
+export type AccountGenderEnum = 'MALE' | 'FEMALE' | 'OTHER';

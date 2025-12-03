@@ -1,0 +1,1 @@
+export type AccountStatusEnum = 'VERIFIED' | 'UNVERIFIED' | 'BLOCKED' | 'UNBLOCKED';

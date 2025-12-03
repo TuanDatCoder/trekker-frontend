@@ -1,0 +1,1 @@
+export type AccountProviderEnum = 'LOCAL' | 'GOOGLE' | 'FACEBOOK';
