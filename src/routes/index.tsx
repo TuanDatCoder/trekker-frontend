@@ -9,6 +9,13 @@ import ForgotPassword from '../pages/auth/ForgotPassword';
 import ResetPassword from '../pages/auth/ResetPassword';
 import RegisterSuccess from '../pages/auth/RegisterSuccess';
 
+// Pages (Newly Added)
+import DashboardPage from '../pages/dashboard/UserDashboardPage';
+import ProfilePage from '../pages/profile/ProfilePage';
+import RoutesPage from '../pages/routes/RoutesPage';
+import CommunityPage from '../pages/community/CommunityPage';
+import NotFoundPage from '../pages/error/NotFoundPage';
+
 // Layouts
 import RootLayout from '../layout/RootLayout';
 
@@ -85,26 +92,19 @@ export const router = createBrowserRouter([
     children: [
       {
         path: 'dashboard',
-        element: (
-          <div className="p-10 text-center">
-            <h1 className="text-5xl font-bold text-emerald-600 mb-4">
-              Welcome to Trekker Dashboard!
-            </h1>
-            <p className="text-xl text-gray-600">Chinh phục mọi cung đường – Bắt đầu từ đây</p>
-          </div>
-        ),
+        element: <DashboardPage />,
       },
       {
         path: 'profile',
-        element: <div className="p-10 text-3xl text-emerald-700">My Profile</div>,
+        element: <ProfilePage />,
       },
       {
         path: 'routes',
-        element: <div className="p-10 text-3xl text-emerald-700">Trekking Routes Map</div>,
+        element: <RoutesPage />,
       },
       {
         path: 'community',
-        element: <div className="p-10 text-3xl text-emerald-700">Trekker Community</div>,
+        element: <CommunityPage />,
       },
     ],
   },
@@ -112,19 +112,6 @@ export const router = createBrowserRouter([
   // 4. 404 - Page Not Found
   {
     path: '*',
-    element: (
-      <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-emerald-900 to-teal-900 text-white">
-        <div className="text-center">
-          <h1 className="text-9xl font-bold mb-4">404</h1>
-          <p className="text-2xl mb-8">Oops! Page not found</p>
-          <Link
-            to="/"
-            className="px-8 py-4 bg-emerald-600 rounded-xl hover:bg-emerald-700 transition text-lg font-semibold"
-          >
-            Back to Home
-          </Link>
-        </div>
-      </div>
-    ),
+    element: <NotFoundPage />,
   },
 ]);

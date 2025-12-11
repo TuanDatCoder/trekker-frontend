@@ -1,5 +1,5 @@
 // src/pages/auth/RegisterSuccess.tsx
-import { Mountain, Mail } from 'lucide-react';
+import { Mail } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export default function RegisterSuccess() {

@@ -1,14 +1,32 @@
 // src/pages/HomePage.tsx
-import { Mountain, MapPin, Users, Calendar, ArrowRight, Smartphone, Download } from 'lucide-react';
+import { MapPin, Users, Calendar, ArrowRight, Smartphone, Download } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import LogoTrekker from '../assets/logo/LogoTrekkerNoBackground.png';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 text-gray-800 overflow-x-hidden">
+    <div 
+      className="
+        h-screen /* SỬA: Cố định chiều cao bằng màn hình */
+        bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 
+        text-gray-800 
+        overflow-x-hidden 
+        overflow-y-auto /* SỬA: Cho phép cuộn dọc */
+        
+        /* --- CSS THANH CUỘN --- */
+        [&::-webkit-scrollbar]:w-2
+        [&::-webkit-scrollbar-track]:bg-transparent
+        [&::-webkit-scrollbar-thumb]:bg-emerald-200
+        [&::-webkit-scrollbar-thumb]:rounded-full
+        hover:[&::-webkit-scrollbar-thumb]:bg-emerald-500
+        transition-colors
+        scroll-smooth
+      "
+    >
       {/* ===== Navbar ===== */}
       <nav className="container mx-auto px-6 py-6 flex justify-between items-center">
         <div className="flex items-center gap-3">
-          <Mountain className="w-10 h-10 text-emerald-600" />
+          <img src={LogoTrekker} alt="Trekker Logo" className="w-10 h-10 object-contain" />
           <span className="text-3xl font-bold text-emerald-800">Trekker</span>
         </div>
         <div className="flex gap-4">
@@ -60,7 +78,7 @@ export default function HomePage() {
             <div className="absolute inset-0 bg-emerald-400/20 rounded-3xl blur-3xl -z-10 animate-pulse"></div>
             <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl p-8 shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-700">
               <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-8 shadow-inner text-center">
-                <Mountain className="w-32 h-32 mx-auto text-emerald-600" />
+                <img src={LogoTrekker} alt="Trekker Logo" className="w-32 h-32 mx-auto object-contain" />
                 <p className="text-2xl font-bold text-emerald-800 mt-6">
                   Ready for the Adventure?
                 </p>
@@ -107,7 +125,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== Mobile App Section – ĐÃ FIX, KHÔNG CẦN ẢNH QR NỮA ===== */}
+      {/* ===== Mobile App Section ===== */}
       <section className="py-20 bg-gradient-to-r from-emerald-600 to-teal-700 text-white relative overflow-hidden">
         {/* Decorative blobs */}
         <div className="absolute inset-0">
@@ -126,7 +144,7 @@ export default function HomePage() {
                 Our mobile app is coming soon! Track routes offline, get real-time weather, and stay safe on every adventure.
               </p>
 
-              {/* Nút giả lập tải app – đẹp hơn cả QR code! */}
+              {/* Nút giả lập tải app */}
               <div className="flex flex-col sm:flex-row gap-6">
                 <button className="group flex items-center gap-4 bg-white text-gray-900 px-8 py-5 rounded-2xl font-bold text-lg shadow-2xl hover:shadow-3xl transform hover:scale-105 transition-all duration-300">
                   <Smartphone className="w-8 h-8" />
@@ -152,7 +170,7 @@ export default function HomePage() {
               <div className="relative">
                 <div className="bg-black rounded-3xl p-4 shadow-2xl">
                   <div className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-8 w-80 h-96 flex flex-col items-center justify-center text-center">
-                    <Mountain className="w-24 h-24 text-white mb-6" />
+                    <img src={LogoTrekker} alt="Trekker Logo" className="w-24 h-24 mb-6 object-contain" />
                     <p className="text-3xl font-bold text-white">Trekker</p>
                     <p className="text-emerald-200 mt-2">Mobile App</p>
                     <div className="mt-8 flex gap-3">
@@ -172,10 +190,10 @@ export default function HomePage() {
       <footer className="bg-gray-900 text-gray-300 py-12">
         <div className="container mx-auto px-6 text-center">
           <div className="flex items-center justify-center gap-3 mb-6">
-            <Mountain className="w-8 h-8 text-emerald-500" />
+            <img src={LogoTrekker} alt="Trekker Logo" className="w-8 h-8 object-contain" />
             <span className="text-2xl font-bold text-white">Trekker</span>
           </div>
-          <p className="mb-6">© {new Date().getFullYear()} Trekker. Built with passion by Tuan Dat</p>
+          <p className="mb-6">© {new Date().getFullYear()} Trekker. Built with passion by TuanDatCoder</p>
           <div className="flex justify-center gap-8 text-sm">
             <Link to="/privacy" className="hover:text-emerald-400 transition">Privacy Policy</Link>
             <Link to="/terms" className="hover:text-emerald-400 transition">Terms of Service</Link>
